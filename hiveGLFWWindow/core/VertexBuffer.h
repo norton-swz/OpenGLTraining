@@ -1,17 +1,11 @@
 ﻿#pragma once
-#ifdef MYDLL
-#define PORT __declspec(dllexport)
-#else
-#define PORT __declspec(dllimport)
-#endif
-
 #include "HiveConfig.h"
 #include <glad/glad.h>
 #include <vector>
 
-namespace hiveVertexBuffer
+namespace hiveWindow
 {
-	class PORT CVertexBuffer
+	class CVertexBuffer
 	{
 	public:
 		CVertexBuffer(const std::vector<float>& vVertices, const std::vector<int>& vArribute, GLenum vUsage, GLenum vMode);

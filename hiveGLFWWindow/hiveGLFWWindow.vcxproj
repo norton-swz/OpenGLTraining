@@ -134,6 +134,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config\AlgorithmConfig.h" />
+    <ClInclude Include="primitive\Primitive.h" />
+    <ClInclude Include="core\RenderPass.h" />
     <ClInclude Include="window\GLFWWindow.h" />
     <ClInclude Include="Config\GLFWWindowConfig.h" />
     <ClInclude Include="core\Render.h" />
@@ -142,6 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Config\AlgorithmConfig.cpp" />
+    <ClCompile Include="primitive\Primitive.cpp" />
+    <ClCompile Include="core\RenderPass.cpp" />
     <ClCompile Include="window\GLFWWindow.cpp" />
     <ClCompile Include="Config\GLFWWindowConfig.cpp" />
     <ClCompile Include="core\Render.cpp" />

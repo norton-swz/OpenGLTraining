@@ -1,0 +1,5 @@
+<RENDER_ALGORITHM>
+  gouraud_shading
+  <VERTEX_SHADER> .\gouraud.vs </VERTEX_SHADER>
+  <FRAGMENT_SHADER> .\gouraud.fs </FRAGMENT_SHADER>
+</RENDER_ALGORITHM>

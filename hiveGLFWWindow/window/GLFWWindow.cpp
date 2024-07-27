@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include "GLFWWindow.h"
 #include <HiveLogger.h>
 

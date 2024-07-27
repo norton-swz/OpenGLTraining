@@ -1,7 +1,7 @@
 ﻿#include "VertexBuffer.h"
 #include <numeric>
 
-hiveVertexBuffer::CVertexBuffer::CVertexBuffer(const std::vector<float>& vVertices, const std::vector<int>& vArribute, GLenum vUsage, GLenum vMode)
+hiveWindow::CVertexBuffer::CVertexBuffer(const std::vector<float>& vVertices, const std::vector<int>& vArribute, GLenum vUsage, GLenum vMode)
 	:m_VAO(0), m_VBO(0), m_EBO(0), m_DrawCallMode(vMode), m_VerticesCount(vVertices.size())
 {
 	glGenVertexArrays(1, &m_VAO);
@@ -13,7 +13,7 @@ hiveVertexBuffer::CVertexBuffer::CVertexBuffer(const std::vector<float>& vVertic
 	glBindVertexArray(0);
 }
 
-hiveVertexBuffer::CVertexBuffer::CVertexBuffer(const std::vector<float>& vVertices, const std::vector<unsigned int>& vIndices, const std::vector<int>& vArribute, GLenum vUsage, GLenum vMode)
+hiveWindow::CVertexBuffer::CVertexBuffer(const std::vector<float>& vVertices, const std::vector<unsigned int>& vIndices, const std::vector<int>& vArribute, GLenum vUsage, GLenum vMode)
 	:m_VAO(0), m_VBO(0), m_EBO(0), m_DrawCallMode(vMode), m_VerticesCount(vVertices.size())
 {
 	glGenVertexArrays(1, &m_VAO);
@@ -28,7 +28,7 @@ hiveVertexBuffer::CVertexBuffer::CVertexBuffer(const std::vector<float>& vVertic
 	glBindVertexArray(0);
 }
 
-hiveVertexBuffer::CVertexBuffer::~CVertexBuffer()
+hiveWindow::CVertexBuffer::~CVertexBuffer()
 {
 	glBindVertexArray(m_VAO);
 	glDeleteVertexArrays(1, &m_VAO);
@@ -39,7 +39,7 @@ hiveVertexBuffer::CVertexBuffer::~CVertexBuffer()
 	}
 }
 
-void hiveVertexBuffer::CVertexBuffer::Draw() const
+void hiveWindow::CVertexBuffer::Draw() const
 {
 	glBindVertexArray(m_VAO);
 	if (m_EBO != 0)
@@ -52,7 +52,7 @@ void hiveVertexBuffer::CVertexBuffer::Draw() const
 	}
 }
 
-void hiveVertexBuffer::CVertexBuffer::__setAttribute(const std::vector<int>& vAttribute)
+void hiveWindow::CVertexBuffer::__setAttribute(const std::vector<int>& vAttribute)
 {
 	unsigned int TotalCount = std::accumulate(vAttribute.begin(), vAttribute.end(), 0);
 	unsigned int Steps = 0;

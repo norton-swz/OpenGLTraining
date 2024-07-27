@@ -36,6 +36,12 @@
     <ClInclude Include="core\VertexBuffer.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="primitive\Primitive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="core\RenderPass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window\GLFWWindow.cpp">
@@ -54,6 +60,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="core\VertexBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="primitive\Primitive.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="core\RenderPass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

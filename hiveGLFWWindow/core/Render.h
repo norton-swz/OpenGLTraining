@@ -5,10 +5,9 @@
 #define PORT __declspec(dllimport)
 #endif
 
-#include "../Config/AlgorithmConfig.h"
-#include "Shader.h"
-#include "../window/GLFWWindow.h"
+#include "../core/RenderPass.h"
 #include "../core/VertexBuffer.h"
+#include "../window/GLFWWindow.h"
 
 namespace hiveWindow
 {
@@ -26,9 +25,7 @@ namespace hiveWindow
 		CRender(const CRender&) = delete;
 		CRender& operator=(const CRender&) = delete;
 		CGLFWWindowConfig m_WindowConfig;
-		CAlgorithmConfig m_AlgorithmConfig;
-		std::shared_ptr<CShader> m_pShader;
-		std::shared_ptr<hiveWindow::CGLFWWindow> m_pWindow;
-		std::shared_ptr<hiveVertexBuffer::CVertexBuffer> m_pVertexBuffer;
+		std::shared_ptr<CGLFWWindow> m_pWindow;
+		std::shared_ptr<CRenderPass> m_pRenderPass;
 	};
 }

@@ -1,17 +1,11 @@
 #pragma once
-#ifdef MYDLL
-#define PORT __declspec(dllexport)
-#else
-#define PORT __declspec(dllimport)
-#endif
-
 #include <string>
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 
 namespace hiveWindow
 {
-	class PORT CShader
+	class CShader
 	{
 	public:
 		enum class EShaderType
