@@ -6,7 +6,6 @@
 #endif
 
 #include "HiveConfig.h"
-#include "HiveLogger.h"
 #include <glad/glad.h>
 #include <vector>
 

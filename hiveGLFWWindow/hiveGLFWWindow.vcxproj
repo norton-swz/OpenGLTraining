@@ -133,20 +133,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AlgorithmConfig.h" />
-    <ClInclude Include="GLFWWindow.h" />
-    <ClInclude Include="GLFWWindowConfig.h" />
-    <ClInclude Include="Render.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="VertexBuffer.h" />
+    <ClInclude Include="Config\AlgorithmConfig.h" />
+    <ClInclude Include="window\GLFWWindow.h" />
+    <ClInclude Include="Config\GLFWWindowConfig.h" />
+    <ClInclude Include="core\Render.h" />
+    <ClInclude Include="core\Shader.h" />
+    <ClInclude Include="core\VertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AlgorithmConfig.cpp" />
-    <ClCompile Include="GLFWWindow.cpp" />
-    <ClCompile Include="GLFWWindowConfig.cpp" />
-    <ClCompile Include="Render.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="VertexBuffer.cpp" />
+    <ClCompile Include="Config\AlgorithmConfig.cpp" />
+    <ClCompile Include="window\GLFWWindow.cpp" />
+    <ClCompile Include="Config\GLFWWindowConfig.cpp" />
+    <ClCompile Include="core\Render.cpp" />
+    <ClCompile Include="core\Shader.cpp" />
+    <ClCompile Include="core\VertexBuffer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

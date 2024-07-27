@@ -18,42 +18,42 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GLFWWindow.h">
+    <ClInclude Include="window\GLFWWindow.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLFWWindowConfig.h">
+    <ClInclude Include="Config\GLFWWindowConfig.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
+    <ClInclude Include="core\Shader.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="AlgorithmConfig.h">
+    <ClInclude Include="Config\AlgorithmConfig.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Render.h">
+    <ClInclude Include="core\Render.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="VertexBuffer.h">
+    <ClInclude Include="core\VertexBuffer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GLFWWindow.cpp">
+    <ClCompile Include="window\GLFWWindow.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="GLFWWindowConfig.cpp">
+    <ClCompile Include="Config\GLFWWindowConfig.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
+    <ClCompile Include="core\Shader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="AlgorithmConfig.cpp">
+    <ClCompile Include="Config\AlgorithmConfig.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Render.cpp">
+    <ClCompile Include="core\Render.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="VertexBuffer.cpp">
+    <ClCompile Include="core\VertexBuffer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

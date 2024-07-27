@@ -1,4 +1,5 @@
 #include "GLFWWindow.h"
+#include <HiveLogger.h>
 
 hiveWindow::CGLFWWindow::CGLFWWindow()
 	:m_pWindow(nullptr), m_MajorVersion(3), m_MinorVersion(3), m_Width(0), m_Height(0), m_WindowName("")
@@ -93,4 +94,9 @@ bool hiveWindow::CGLFWWindow::initWindow()
 		return false;
 	}
 	return true;
+}
+
+void framebuffer_size_callback(GLFWwindow* vWindow, int vWidth, int vHeight)
+{
+	glViewport(0, 0, vWidth, vHeight);
 }

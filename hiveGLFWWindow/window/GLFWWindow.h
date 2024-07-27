@@ -7,9 +7,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "GLFWWindowConfig.h"
-#include <HiveLogger.h>
-#include <iostream>
+#include "../Config/GLFWWindowConfig.h"
 
 void framebuffer_size_callback(GLFWwindow* vWindow, int vWidth, int vHeight);
 namespace hiveWindow
@@ -36,11 +34,6 @@ namespace hiveWindow
 		std::string m_WindowName;
 		bool m_UseCoreProfile;
 	};
-}
-
-void framebuffer_size_callback(GLFWwindow* vWindow, int vWidth, int vHeight)
-{
-	glViewport(0, 0, vWidth, vHeight);
 }
 
 
