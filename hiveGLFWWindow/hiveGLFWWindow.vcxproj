@@ -105,6 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);MYDLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)tinygltf;$(SolutionDir)happly;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,24 +134,73 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="base\RenderBuffer.h" />
+    <ClInclude Include="camera\Camera.h" />
+    <ClInclude Include="camera\FPSController.h" />
+    <ClInclude Include="camera\PerspCamController.h" />
+    <ClInclude Include="camera\PerspectiveCamera.h" />
     <ClInclude Include="Config\AlgorithmConfig.h" />
+    <ClInclude Include="base\FrameBuffer.h" />
+    <ClInclude Include="core\Model.h" />
+    <ClInclude Include="core\Node.h" />
+    <ClInclude Include="core\Transform.h" />
+    <ClInclude Include="culling\AABB.h" />
+    <ClInclude Include="culling\BoundingVolume.h" />
+    <ClInclude Include="culling\Frustum.h" />
+    <ClInclude Include="gizmos\AABBGizmo.h" />
+    <ClInclude Include="light\DirectionalLight.h" />
+    <ClInclude Include="light\Light.h" />
+    <ClInclude Include="light\PointLight.h" />
+    <ClInclude Include="material\Material.h" />
+    <ClInclude Include="material\SimplePointCloudMaterial.h" />
+    <ClInclude Include="material\SolidColorMaterial.h" />
+    <ClInclude Include="modelLoader\modelLoader.h" />
+    <ClInclude Include="core\PointCloudRenderPass.h" />
     <ClInclude Include="primitive\Primitive.h" />
     <ClInclude Include="core\RenderPass.h" />
+    <ClInclude Include="core\Scene.h" />
+    <ClInclude Include="base\Texture.h" />
+    <ClInclude Include="base\Texture2D.h" />
+    <ClInclude Include="utils\AssetsPath.h" />
+    <ClInclude Include="utils\InputHandler.h" />
+    <ClInclude Include="utils\safe.h" />
     <ClInclude Include="window\GLFWWindow.h" />
     <ClInclude Include="Config\GLFWWindowConfig.h" />
     <ClInclude Include="core\Render.h" />
     <ClInclude Include="core\Shader.h" />
-    <ClInclude Include="core\VertexBuffer.h" />
+    <ClInclude Include="base\VertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="base\RenderBuffer.cpp" />
+    <ClCompile Include="camera\Camera.cpp" />
+    <ClCompile Include="camera\FPSController.cpp" />
+    <ClCompile Include="camera\PerspectiveCamera.cpp" />
     <ClCompile Include="Config\AlgorithmConfig.cpp" />
+    <ClCompile Include="base\FrameBuffer.cpp" />
+    <ClCompile Include="core\Node.cpp" />
+    <ClCompile Include="core\Transform.cpp" />
+    <ClCompile Include="gizmos\AABBGizmo.cpp" />
+    <ClCompile Include="light\DirectionalLight.cpp" />
+    <ClCompile Include="light\PointLight.cpp" />
+    <ClCompile Include="material\SimplePointCloudMaterial.cpp" />
+    <ClCompile Include="material\SolidColorMaterial.cpp" />
+    <ClCompile Include="modelLoader\modelLoader.cpp" />
+    <ClCompile Include="core\PointCloudRenderPass.cpp" />
     <ClCompile Include="primitive\Primitive.cpp" />
     <ClCompile Include="core\RenderPass.cpp" />
+    <ClCompile Include="core\Scene.cpp" />
+    <ClCompile Include="base\Texture2D.cpp" />
+    <ClCompile Include="utils\AssetsPath.cpp" />
     <ClCompile Include="window\GLFWWindow.cpp" />
     <ClCompile Include="Config\GLFWWindowConfig.cpp" />
     <ClCompile Include="core\Render.cpp" />
     <ClCompile Include="core\Shader.cpp" />
-    <ClCompile Include="core\VertexBuffer.cpp" />
+    <ClCompile Include="base\VertexBuffer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\tinygltf\tinygltf.vcxproj">
+      <Project>{85292b36-f86a-41f7-803b-a413690b8ab0}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

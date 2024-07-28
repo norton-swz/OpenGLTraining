@@ -15,6 +15,9 @@ namespace hiveWindow
 		const int getHeight() const { return m_Height; }
 		bool readFormXML(const CGLFWWindowConfig& vConfig);
 		bool initWindow();
+		void run();
+		void processInput();
+
 	private:
 		GLFWwindow* m_pWindow;
 		int m_MajorVersion;

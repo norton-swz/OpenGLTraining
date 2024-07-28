@@ -1,0 +1,53 @@
+<Config>
+	<!--<Window>
+		Window
+		<WindowType>QT</WindowType>
+		<Width>900</Width>
+		<Height>600</Height>
+		<Title>QT Window</Title>
+	</Window>-->
+	 <Window>
+		Window
+		<WindowType>GLFW</WindowType>
+		<Width>900</Width>
+		<Height>600</Height>
+		<Title>GLFW Window</Title>
+	</Window> 
+	<CamController>
+		CamController
+		<Type>TrackBall</Type>
+		<TargetPos>0.0 0.0 0.0</TargetPos>
+		<Distance>10.0</Distance>
+		<Sensitivity>1.0</Sensitivity>
+	</CamController>
+	<!-- <CamController>
+		CamController
+		<Type>WalkThrough</Type>
+		<Sensitivity>1.0</Sensitivity>
+		<Speed>20.0</Speed>
+	</CamController> -->
+	 <Model>
+		Model
+		<Type>TriMesh</Type>
+		<Path>\Models\TriMesh\dragon.gltf</Path>
+		<Position>0.0 0.0 0.0</Position>
+		<Rotation>0.0 0.0 0.0</Rotation>
+		<Scale>1.0 1.0 1.0</Scale>
+	</Model> 
+	 <!--<Model>
+		Model
+		<Type>PointCloud</Type>
+		<Path>\Models\PointCloud\100cm\Tile_+003_+005.ply</Path>
+		<Position>0.0 0.0 0.0</Position>
+		<Rotation>0.0 0.0 0.0</Rotation>
+		<Scale>1.0 1.0 1.0</Scale>
+	</Model>--> 
+	<!--<Model>
+		Model
+		<Type>TestTorus</Type>
+		<Path></Path>
+		<Position>0.0 0.0 0.0</Position>
+		<Rotation>0.0 0.0 0.0</Rotation>
+		<Scale>1.0 1.0 1.0</Scale>
+	</Model>-->
+</Config>

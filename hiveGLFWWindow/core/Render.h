@@ -6,8 +6,11 @@
 #endif
 
 #include "../core/RenderPass.h"
-#include "../core/VertexBuffer.h"
 #include "../window/GLFWWindow.h"
+#include "../camera/PerspectiveCamera.h"
+#include "Scene.h"
+#include "../camera/PerspCamController.h"
+#include "../Config/AlgorithmConfig.h"
 
 namespace hiveWindow
 {
@@ -17,6 +20,8 @@ namespace hiveWindow
 		static CRender& getInstance();
 		void startup(const std::string& vWindowConfigFileName, const std::string& vAlgorithmConfigFileName);
 		void run();
+		void init(int vInitWidth, int vInitHeight);
+		void tick();
 
 		void processInput(GLFWwindow* window);
 
@@ -25,7 +30,13 @@ namespace hiveWindow
 		CRender(const CRender&) = delete;
 		CRender& operator=(const CRender&) = delete;
 		CGLFWWindowConfig m_WindowConfig;
+		CAlgorithmConfig m_AlgorithmConfig;
+		std::shared_ptr<CPerspCamController> m_pCamController;
 		std::shared_ptr<CGLFWWindow> m_pWindow;
 		std::shared_ptr<CRenderPass> m_pRenderPass;
+		std::shared_ptr<CScene> m_pScene;
+		std::shared_ptr<CPerspectiveCamera> m_pCamera;
+		std::shared_ptr<CMaterial> m_pMaterial;
+		std::shared_ptr<CNode> m_pNode;
 	};
 }

@@ -1,6 +1,7 @@
 #include <glad/glad.h>
 #include "GLFWWindow.h"
 #include <HiveLogger.h>
+#include "../core/Render.h"
 
 hiveWindow::CGLFWWindow::CGLFWWindow()
 	:m_pWindow(nullptr), m_MajorVersion(3), m_MinorVersion(3), m_Width(0), m_Height(0), m_WindowName("")
@@ -95,6 +96,25 @@ bool hiveWindow::CGLFWWindow::initWindow()
 		return false;
 	}
 	return true;
+}
+
+void hiveWindow::CGLFWWindow::run()
+{
+	while (!glfwWindowShouldClose(m_pWindow))
+	{
+		CRender::getInstance().tick();
+		processInput();
+		glfwSwapBuffers(m_pWindow);
+		glfwPollEvents();
+	}
+
+	glfwTerminate();
+}
+
+void hiveWindow::CGLFWWindow::processInput()
+{
+	if (glfwGetKey(m_pWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(m_pWindow, true);
 }
 
 void framebuffer_size_callback(GLFWwindow* vWindow, int vWidth, int vHeight)

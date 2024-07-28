@@ -1,5 +1,5 @@
 #include "Primitive.h"
-#include "../core/VertexBuffer.h"
+#include "../base/VertexBuffer.h"
 
 std::shared_ptr<hiveWindow::CVertexBuffer> hiveWindow::CPrimitive::createSquare()
 {
@@ -13,5 +13,5 @@ std::shared_ptr<hiveWindow::CVertexBuffer> hiveWindow::CPrimitive::createSquare(
     };
     std::vector<int> AttributeLayout = { 3, 3, 3 };
 
-	return std::make_shared<hiveWindow::CVertexBuffer>(vertices, AttributeLayout, GL_STATIC_DRAW, GL_TRIANGLES);
+	return std::make_shared<CVertexBuffer>(vertices, AttributeLayout, GL_STATIC_DRAW, GL_TRIANGLES);
 }

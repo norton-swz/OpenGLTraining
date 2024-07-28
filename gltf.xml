@@ -1,0 +1,5 @@
+<RENDER_ALGORITHM>
+  gltf_shading
+  <VERTEX_SHADER> .\simplePointCloud.vert </VERTEX_SHADER>
+  <FRAGMENT_SHADER> .\simplePointCloud.frag </FRAGMENT_SHADER>
+</RENDER_ALGORITHM>

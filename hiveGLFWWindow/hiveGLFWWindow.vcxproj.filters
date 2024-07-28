@@ -33,13 +33,94 @@
     <ClInclude Include="core\Render.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="core\VertexBuffer.h">
+    <ClInclude Include="base\VertexBuffer.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="primitive\Primitive.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="core\RenderPass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="light\Light.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="light\DirectionalLight.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Scene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\Camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\FrameBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\Texture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\Texture2D.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\AssetsPath.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\InputHandler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\safe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="base\RenderBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Model.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Material.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Transform.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="material\SolidColorMaterial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\PerspectiveCamera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="culling\Frustum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="light\PointLight.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\FPSController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\PerspCamController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="modelLoader\modelLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gizmos\AABBGizmo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="culling\AABB.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="culling\BoundingVolume.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="material\SimplePointCloudMaterial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="core\PointCloudRenderPass.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,13 +140,64 @@
     <ClCompile Include="core\Render.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="core\VertexBuffer.cpp">
+    <ClCompile Include="base\VertexBuffer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="primitive\Primitive.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="core\RenderPass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="light\DirectionalLight.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Scene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="camera\Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base\FrameBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base\Texture2D.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\AssetsPath.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base\RenderBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Node.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Transform.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="material\SolidColorMaterial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="camera\PerspectiveCamera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="light\PointLight.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="camera\FPSController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="modelLoader\modelLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gizmos\AABBGizmo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="material\SimplePointCloudMaterial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="core\PointCloudRenderPass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
