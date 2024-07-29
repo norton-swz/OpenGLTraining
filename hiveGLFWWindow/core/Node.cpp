@@ -1,5 +1,6 @@
 #include "Node.h"
 #include <queue>
+#include "../core/Scene.h"
 
 namespace hiveWindow
 {
@@ -51,6 +52,16 @@ namespace hiveWindow
 			for (const auto& pNode : pCurrNode->m_ChildNodes)
 				QueueNodes.push(pNode);
 		}
+	}
+
+	void CNode::updateModels(const std::string& vVertShaderPath, const std::string& vFragShaderPath, const std::shared_ptr<CScene>& vScene) const
+	{
+		traverse(vScene->getRootNode(), [&](const std::shared_ptr<CNode>& vNode) {
+			for (const auto& pModel : vNode->getModels())
+			{
+				pModel->updateMaterial(vVertShaderPath, vFragShaderPath);
+			}
+			});
 	}
 
 	void CNode::__updateModelMatrix()

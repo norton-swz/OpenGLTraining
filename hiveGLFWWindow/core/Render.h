@@ -22,8 +22,10 @@ namespace hiveWindow
 		void run();
 		void init(int vInitWidth, int vInitHeight);
 		void tick();
-
-		void processInput(GLFWwindow* window);
+		void onResize(int vWidth, int vHeight);
+		void switchRenderAlgorithm();
+		void updateAfterSwitchAlgorithm();
+		const std::shared_ptr<CPerspCamController>& getCameraController() const { return m_pCamController; }
 
 	private:
 		CRender();
@@ -38,5 +40,7 @@ namespace hiveWindow
 		std::shared_ptr<CPerspectiveCamera> m_pCamera;
 		std::shared_ptr<CMaterial> m_pMaterial;
 		std::shared_ptr<CNode> m_pNode;
+		int m_AlgorithmIndex;
+		bool m_Switch = false;
 	};
 }

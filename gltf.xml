@@ -1,5 +1,11 @@
 <RENDER_ALGORITHM>
-  gltf_shading
-  <VERTEX_SHADER> .\simplePointCloud.vert </VERTEX_SHADER>
-  <FRAGMENT_SHADER> .\simplePointCloud.frag </FRAGMENT_SHADER>
+  gltf_pix_shading
+  <VERTEX_SHADER> .\dragon.vert </VERTEX_SHADER>
+  <FRAGMENT_SHADER> .\dragon.frag </FRAGMENT_SHADER>
+</RENDER_ALGORITHM>
+
+<RENDER_ALGORITHM>
+  gltf_gour_shading
+  <VERTEX_SHADER> .\dragon_gouraud.vert </VERTEX_SHADER>
+  <FRAGMENT_SHADER> .\dragon_gouraud.frag </FRAGMENT_SHADER>
 </RENDER_ALGORITHM>

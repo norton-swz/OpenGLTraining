@@ -152,7 +152,6 @@
     <ClInclude Include="light\Light.h" />
     <ClInclude Include="light\PointLight.h" />
     <ClInclude Include="material\Material.h" />
-    <ClInclude Include="material\SimplePointCloudMaterial.h" />
     <ClInclude Include="material\SolidColorMaterial.h" />
     <ClInclude Include="modelLoader\modelLoader.h" />
     <ClInclude Include="core\PointCloudRenderPass.h" />
@@ -182,7 +181,6 @@
     <ClCompile Include="gizmos\AABBGizmo.cpp" />
     <ClCompile Include="light\DirectionalLight.cpp" />
     <ClCompile Include="light\PointLight.cpp" />
-    <ClCompile Include="material\SimplePointCloudMaterial.cpp" />
     <ClCompile Include="material\SolidColorMaterial.cpp" />
     <ClCompile Include="modelLoader\modelLoader.cpp" />
     <ClCompile Include="core\PointCloudRenderPass.cpp" />

@@ -95,15 +95,23 @@ bool hiveWindow::CGLFWWindow::initWindow()
 		glfwTerminate();
 		return false;
 	}
+
+	glEnable(GL_DEPTH_TEST);
+	__registerEvents();
 	return true;
 }
 
 void hiveWindow::CGLFWWindow::run()
 {
+	float LastTime = 0.0f;
 	while (!glfwWindowShouldClose(m_pWindow))
 	{
+		float CurrTime = static_cast<float>(glfwGetTime());
+		float DeltaTime = CurrTime - LastTime;
+		LastTime = CurrTime;
 		CRender::getInstance().tick();
-		processInput();
+		CRender::getInstance().getCameraController()->update(DeltaTime);
+
 		glfwSwapBuffers(m_pWindow);
 		glfwPollEvents();
 	}
@@ -115,6 +123,49 @@ void hiveWindow::CGLFWWindow::processInput()
 {
 	if (glfwGetKey(m_pWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(m_pWindow, true);
+}
+
+void hiveWindow::CGLFWWindow::__registerEvents() const
+{
+	glfwSetFramebufferSizeCallback(m_pWindow, [](GLFWwindow* vWindow, int vWidth, int vHeight) {
+		if (vWidth == 0 || vHeight == 0) return;
+		CRender::getInstance().onResize(vWidth, vHeight);
+		});
+
+	glfwSetMouseButtonCallback(m_pWindow, [](GLFWwindow* vWindow, int vButton, int vAction, int vMods) {
+		if (vButton == GLFW_MOUSE_BUTTON_LEFT) {
+			if (vAction == GLFW_PRESS)
+				CRender::getInstance().getCameraController()->onMouseButtonDown(HIVE_MOUSE_BUTTON_LEFT);
+			else if (vAction == GLFW_RELEASE)
+				CRender::getInstance().getCameraController()->onMouseButtonUp(HIVE_MOUSE_BUTTON_LEFT);
+		}
+		else if (vButton == GLFW_MOUSE_BUTTON_RIGHT) {
+			if (vAction == GLFW_PRESS)
+				CRender::getInstance().getCameraController()->onMouseButtonDown(HIVE_MOUSE_BUTTON_RIGHT);
+			else if (vAction == GLFW_RELEASE)
+				CRender::getInstance().getCameraController()->onMouseButtonUp(HIVE_MOUSE_BUTTON_RIGHT);
+		}
+		});
+
+	glfwSetCursorPosCallback(m_pWindow, [](GLFWwindow* vWindow, double vXPos, double vYPos) {
+		CRender::getInstance().getCameraController()->onMouseMove(static_cast<float>(vXPos), static_cast<float>(vYPos));
+		});
+
+	glfwSetScrollCallback(m_pWindow, [](GLFWwindow* vWindow, double vXOffset, double vYOffset) {
+		CRender::getInstance().getCameraController()->onMouseScroll(static_cast<float>(vXOffset), static_cast<float>(vYOffset));
+		});
+
+	glfwSetKeyCallback(m_pWindow, [](GLFWwindow* vWindow, int vKey, int vScancode, int vAction, int vMods) {
+		if (vAction == GLFW_PRESS)
+		{
+			CRender::getInstance().getCameraController()->onKeyDown(vKey);
+			if (vKey == GLFW_KEY_SPACE) CRender::getInstance().switchRenderAlgorithm();
+		}
+		else if (vAction == GLFW_RELEASE)
+		{
+			CRender::getInstance().getCameraController()->onKeyUp(vKey);
+		}
+		});
 }
 
 void framebuffer_size_callback(GLFWwindow* vWindow, int vWidth, int vHeight)

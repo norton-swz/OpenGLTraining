@@ -4,7 +4,7 @@
 namespace hiveWindow
 {
 	CCamera::CCamera() :
-		m_Position(0.0f, 0.0f, 6.0f),
+		m_Position(0.0f, 0.0f, 5.0f),
 		m_Front(0.0f, 0.0f, -1.0f), m_Up(0.0f, 1.0f, 0.0f), m_Right(1.0f, 0.0f, 0.0f), m_WorldUp(0.0f, 1.0f, 0.0f),
 		m_ViewMatrix{}, m_ProjectionMatrix{}, m_SolidColor(0.2f, 0.3f, 0.3f, 1.0f),
 		m_pFrameBuffer(CFrameBuffer::getDefaultFrameBuffer())

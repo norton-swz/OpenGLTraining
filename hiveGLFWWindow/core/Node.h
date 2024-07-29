@@ -26,6 +26,7 @@ namespace hiveWindow
 		glm::mat3 getNormalMatrix() const;
 		const CTransform& getTransform() const { return m_Transform; }
 		static void traverse(const std::shared_ptr<CNode>& vRootNode, std::function<void(const std::shared_ptr<CNode>&)> vFuncTraverse);
+		void updateModels(const std::string& vVertShaderPath, const std::string& vFragShaderPath, const std::shared_ptr<CScene>& vScene) const;
 	private:
 		void __updateModelMatrix();
 		std::string m_NodeName;

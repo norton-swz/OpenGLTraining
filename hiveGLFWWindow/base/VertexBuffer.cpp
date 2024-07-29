@@ -15,7 +15,7 @@ hiveWindow::CVertexBuffer::CVertexBuffer(const std::vector<float>& vVertices, co
 }
 
 hiveWindow::CVertexBuffer::CVertexBuffer(const std::vector<float>& vVertices, const std::vector<unsigned int>& vIndices, const std::vector<int>& vArribute, GLenum vUsage, GLenum vMode)
-	:m_VAO(0), m_VBO(0), m_EBO(0), m_DrawCallMode(vMode), m_VerticesCount(vVertices.size() / std::accumulate(vArribute.begin(), vArribute.end(), 0))
+	:m_VAO(0), m_VBO(0), m_EBO(0), m_DrawCallMode(vMode), m_VerticesCount(vIndices.size())
 {
 	glGenVertexArrays(1, &m_VAO);
 	glGenBuffers(1, &m_VBO);
@@ -64,4 +64,3 @@ void hiveWindow::CVertexBuffer::__setAttribute(const std::vector<int>& vAttribut
 		Steps += vAttribute[i];
 	}
 }
-

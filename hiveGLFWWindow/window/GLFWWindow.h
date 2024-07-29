@@ -19,6 +19,7 @@ namespace hiveWindow
 		void processInput();
 
 	private:
+		void __registerEvents() const;
 		GLFWwindow* m_pWindow;
 		int m_MajorVersion;
 		int m_MinorVersion;

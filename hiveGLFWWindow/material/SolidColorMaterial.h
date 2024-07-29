@@ -13,6 +13,7 @@ namespace hiveWindow
 		// Inherited via CMaterial
 		void use(const std::shared_ptr<CScene>& vScene, const std::shared_ptr<CNode>& vNode) override;
 		void updateLightDirection();
+		void updateShader(const std::string& vVertShaderPath, const std::string& vFragShaderPath) override;
 	private:
 		glm::vec3 m_Color;
 		static std::shared_ptr<CShader> m_pShader;
