@@ -2,9 +2,9 @@
 
 #include <memory>
 #include <unordered_map>
-#include <glad/glad.h>
 #include "Texture2D.h"
 #include "RenderBuffer.h"
+#include <glad/glad.h>
 
 namespace hiveWindow
 {

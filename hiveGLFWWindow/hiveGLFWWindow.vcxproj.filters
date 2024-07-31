@@ -39,9 +39,6 @@
     <ClInclude Include="primitive\Primitive.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="core\RenderPass.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="light\Light.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -108,16 +105,25 @@
     <ClInclude Include="modelLoader\modelLoader.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="gizmos\AABBGizmo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="culling\AABB.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="culling\BoundingVolume.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="core\PointCloudRenderPass.h">
+    <ClInclude Include="pipeline\DeferredPipeline.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pipeline\Pipeline.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="renderpass\GeometryRenderPass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="renderpass\LightingRenderPass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="renderpass\RenderPass.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -141,9 +147,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="primitive\Primitive.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="core\RenderPass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="light\DirectionalLight.cpp">
@@ -188,10 +191,13 @@
     <ClCompile Include="modelLoader\modelLoader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="gizmos\AABBGizmo.cpp">
+    <ClCompile Include="pipeline\DeferredPipeline.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="core\PointCloudRenderPass.cpp">
+    <ClCompile Include="renderpass\GeometryRenderPass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="renderpass\LightingRenderPass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

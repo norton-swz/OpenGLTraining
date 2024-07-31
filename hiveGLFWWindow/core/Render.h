@@ -1,16 +1,18 @@
-#pragma once
 #ifdef MYDLL
 #define PORT __declspec(dllexport)
 #else
 #define PORT __declspec(dllimport)
 #endif
 
-#include "../core/RenderPass.h"
-#include "../window/GLFWWindow.h"
+#pragma once
+//#include "../core/RenderPass.h"
 #include "../camera/PerspectiveCamera.h"
 #include "Scene.h"
 #include "../camera/PerspCamController.h"
 #include "../Config/AlgorithmConfig.h"
+//#include "../pipeline/Pipeline.h"
+#include "../pipeline/DeferredPipeline.h"
+#include "../window/GLFWWindow.h"
 
 namespace hiveWindow
 {
@@ -35,7 +37,8 @@ namespace hiveWindow
 		CAlgorithmConfig m_AlgorithmConfig;
 		std::shared_ptr<CPerspCamController> m_pCamController;
 		std::shared_ptr<CGLFWWindow> m_pWindow;
-		std::shared_ptr<CRenderPass> m_pRenderPass;
+		//std::shared_ptr<CRenderPass> m_pRenderPass;
+		std::shared_ptr<CDeferredPipeline> m_pPipeline;
 		std::shared_ptr<CScene> m_pScene;
 		std::shared_ptr<CPerspectiveCamera> m_pCamera;
 		std::shared_ptr<CMaterial> m_pMaterial;

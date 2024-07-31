@@ -10,7 +10,7 @@ namespace hiveWindow
 	class CMaterial
 	{
 	public:
-		virtual void use(const std::shared_ptr<CScene>& vScene, const std::shared_ptr<CNode>& vNode) = 0;
+		virtual void use(const std::shared_ptr<CScene>& vScene) = 0;
 		virtual void updateShader(const std::string& vVertShaderPath, const std::string& vFragShaderPath) = 0;
 	};
 }

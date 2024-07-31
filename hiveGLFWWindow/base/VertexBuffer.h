@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 #include "HiveConfig.h"
 #include <glad/glad.h>
 #include <vector>

@@ -1,0 +1,11 @@
+<RENDER_ALGORITHM>
+  geo_renderpass
+  <VERTEX_SHADER> .\der_dragon_geo.vert </VERTEX_SHADER>
+  <FRAGMENT_SHADER> .\der_dragon_geo.frag </FRAGMENT_SHADER>
+</RENDER_ALGORITHM>
+
+<RENDER_ALGORITHM>
+  lig_renderpass
+  <VERTEX_SHADER> .\der_dragon_lig.vert </VERTEX_SHADER>
+  <FRAGMENT_SHADER> .\der_dragon_lig.frag </FRAGMENT_SHADER>
+</RENDER_ALGORITHM>

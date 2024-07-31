@@ -9,9 +9,8 @@ namespace hiveWindow
 	{
 	public:
 		CSolidColorMaterial(const std::string& vVertShaderPath, const std::string& vFragShaderPath);
-		CSolidColorMaterial(const glm::vec3& vColor);
-		// Inherited via CMaterial
-		void use(const std::shared_ptr<CScene>& vScene, const std::shared_ptr<CNode>& vNode) override;
+		//void use(const std::shared_ptr<CScene>& vScene, const std::shared_ptr<CNode>& vNode) override;
+		void use(const std::shared_ptr<CScene>& vScene) override;
 		void updateLightDirection();
 		void updateShader(const std::string& vVertShaderPath, const std::string& vFragShaderPath) override;
 	private:

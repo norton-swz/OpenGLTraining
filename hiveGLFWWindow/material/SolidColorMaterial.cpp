@@ -16,26 +16,29 @@ hiveWindow::CSolidColorMaterial::CSolidColorMaterial(const std::string& vVertSha
 	m_pShader = std::make_shared<CShader>(vVertShaderPath, vFragShaderPath);
 }
 
-hiveWindow::CSolidColorMaterial::CSolidColorMaterial(const glm::vec3& vColor) :m_Color(vColor)
-{
-	if (m_pShader == nullptr)
-	{
-		std::string Dir = CAssetsPath::getAssetsPath() + "\\shaders\\";
-		m_pShader = std::make_shared<CShader>(Dir + "solidColor.vert", Dir + "solidColor.frag");
-	}
-}
+//hiveWindow::CSolidColorMaterial::CSolidColorMaterial(const glm::vec3& vColor) :m_Color(vColor)
+//{
+//	if (m_pShader == nullptr)
+//	{
+//		std::string Dir = CAssetsPath::getAssetsPath() + "\\shaders\\";
+//		m_pShader = std::make_shared<CShader>(Dir + "solidColor.vert", Dir + "solidColor.frag");
+//	}
+//}
 
-void hiveWindow::CSolidColorMaterial::use(const std::shared_ptr<CScene>& vScene, const std::shared_ptr<CNode>& vNode)
+void hiveWindow::CSolidColorMaterial::use(const std::shared_ptr<CScene>& vScene)
 {
 	m_pShader->use();
 	m_pShader->setUniform("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
 	updateLightDirection();
-	//m_pShader->setUniform("lightdirection", m_LightDirection);
 	m_pShader->setUniform("lightdirection", m_LightDirection);
+	m_pShader->setUniform("gPosition", 0);
+	m_pShader->setUniform("gNormal", 1);
+	m_pShader->setUniform("gAlbedoSpec", 2);
+	//m_pShader->setUniform("lightdirection", glm::vec3(0.0, 0.0, 3.0));
 
-	m_pShader->setUniform("model", vNode->getModelMatrix());
+	/*m_pShader->setUniform("model", vNode->getModelMatrix());
 	m_pShader->setUniform("view", vScene->getCamera()->getViewMatrix());
-	m_pShader->setUniform("projection", vScene->getCamera()->getProjectionMatrix());
+	m_pShader->setUniform("projection", vScene->getCamera()->getProjectionMatrix());*/
 }
 
 

@@ -4,7 +4,6 @@
 #include "../base/VertexBuffer.h"
 #include <HiveLogger.h>
 #include "../core/Scene.h"
-#include "../gizmos/AABBGizmo.h"
 #include <glm/gtc/quaternion.hpp>
 
 
@@ -362,7 +361,7 @@ namespace hiveWindow
 		return pParentNode;
 	}
 
-	std::shared_ptr<CNode> loadPointCloud(const std::string& vFileName, const std::shared_ptr<CMaterial>& vMaterial)
+	/*std::shared_ptr<CNode> loadPointCloud(const std::string& vFileName, const std::shared_ptr<CMaterial>& vMaterial)
 	{
 		happly::PLYData PlyIn(vFileName, true);
 		std::vector<double> PosX = PlyIn.getElement("vertex").getProperty<double>("x");
@@ -398,5 +397,5 @@ namespace hiveWindow
 		pNode->addChild(std::make_shared<CAABBGizmo>(pAABB));
 		pNode->setPosition(-(MinPos + MaxPos) / 2.0f);
 		return pNode;
-	}
+	}*/
 }

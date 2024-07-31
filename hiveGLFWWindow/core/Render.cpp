@@ -1,16 +1,15 @@
 #include "Render.h"
 #include <ConfigInterface.h>
 #include <UtilityInterface.h>
-#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <HiveLogger.h>
-
 #include "tiny_gltf.h"
 #include "../primitive/Primitive.h"
 #include "../light/PointLight.h"
 #include "../material/SolidColorMaterial.h"
 #include "../camera/FPSController.h"
 #include "../modelLoader/modelLoader.h"
+
 
 
 hiveWindow::CRender::CRender()
@@ -41,10 +40,14 @@ void hiveWindow::CRender::startup(const std::string& vWindowConfigFileName, cons
 
     Status = hiveParseConfig(vAlgorithmConfigFileName, hiveConfig::EConfigType::XML, &m_AlgorithmConfig);
     const hiveConfig::CHiveConfig* Sub1config = m_AlgorithmConfig.getSubconfigAt(0);
-    const std::string VertShaderPath = Sub1config->getAttribute<std::string>("VERTEX_SHADER").value();
-    const std::string FragShaderPath = Sub1config->getAttribute<std::string>("FRAGMENT_SHADER").value();
-    m_pMaterial = std::make_shared<CSolidColorMaterial>(VertShaderPath, FragShaderPath);
-    m_pRenderPass = std::make_shared<CRenderPass>();
+    std::string VertShaderPath = Sub1config->getAttribute<std::string>("VERTEX_SHADER").value();
+    std::string FragShaderPath = Sub1config->getAttribute<std::string>("FRAGMENT_SHADER").value();
+    m_pPipeline = std::make_shared<CDeferredPipeline>(VertShaderPath, FragShaderPath, m_pWindow->getWidth(), m_pWindow->getHeight());
+    const hiveConfig::CHiveConfig* Sub2config = m_AlgorithmConfig.getSubconfigAt(1);
+    VertShaderPath = Sub2config->getAttribute<std::string>("VERTEX_SHADER").value();
+    FragShaderPath = Sub2config->getAttribute<std::string>("FRAGMENT_SHADER").value();
+	m_pMaterial = std::make_shared<CSolidColorMaterial>(VertShaderPath, FragShaderPath);
+    m_pPipeline->setLightingPassMaterial(m_pMaterial);
     init(m_pWindow->getWidth(), m_pWindow->getHeight());
 }
 
@@ -73,9 +76,11 @@ void hiveWindow::CRender::init(int vInitWidth, int vInitHeight)
 
 void hiveWindow::CRender::tick()
 {
-    if (m_Switch) updateAfterSwitchAlgorithm();
-    m_Switch = false;
-    m_pRenderPass->render(m_pWindow, m_pScene);
+    /*if (m_Switch) updateAfterSwitchAlgorithm();
+    m_Switch = false;*/
+    //m_pRenderPass->render(m_pWindow, m_pScene);
+
+    m_pPipeline->render(m_pScene);
 }
 
 void hiveWindow::CRender::onResize(int vWidth, int vHeight)

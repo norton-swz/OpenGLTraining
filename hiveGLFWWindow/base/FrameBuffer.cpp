@@ -14,7 +14,7 @@ namespace hiveWindow
 
 	CFrameBuffer::~CFrameBuffer()
 	{
-		if (this != m_pDefaultFrameBuffer.get()) GL_SAFE_CALL(glDeleteFramebuffers(1, &m_FrameBufferID));
+		if (this != m_pDefaultFrameBuffer.get()) glDeleteFramebuffers(1, &m_FrameBufferID);
 	}
 
 	void CFrameBuffer::bind(GLenum vTarget) const
