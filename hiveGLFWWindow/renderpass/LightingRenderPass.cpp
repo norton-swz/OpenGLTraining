@@ -3,8 +3,8 @@
 
 namespace hiveWindow
 {
-	CLightingRenderPass::CLightingRenderPass(const std::shared_ptr<CFrameBuffer>& vFrameBuffer, const std::shared_ptr<CVertexBuffer>& vQuadVAO)
-		: m_pQuadVAO(vQuadVAO), m_pGeomFrameBuffer(vFrameBuffer) {}
+	CLightingRenderPass::CLightingRenderPass(const std::shared_ptr<CFrameBuffer>& vShadowFrameBuffer, const std::shared_ptr<CFrameBuffer>& vGeomFrameBuffer, const std::shared_ptr<CVertexBuffer>& vQuadVAO)
+		: m_pQuadVAO(vQuadVAO), m_pGeomFrameBuffer(vGeomFrameBuffer), m_pShadowFrameBuffer(vShadowFrameBuffer){}
 
 	void CLightingRenderPass::render(const std::shared_ptr<CScene>& vScene)
 	{
@@ -19,6 +19,10 @@ namespace hiveWindow
 		m_pGeomFrameBuffer->getAttachment(GL_COLOR_ATTACHMENT1)->bind();
 		GL_SAFE_CALL(glActiveTexture(GL_TEXTURE2));
 		m_pGeomFrameBuffer->getAttachment(GL_COLOR_ATTACHMENT2)->bind();
+		GL_SAFE_CALL(glActiveTexture(GL_TEXTURE3));
+		m_pGeomFrameBuffer->getAttachment(GL_DEPTH_ATTACHMENT)->bind();
+		GL_SAFE_CALL(glActiveTexture(GL_TEXTURE4));
+		m_pShadowFrameBuffer->getAttachment(GL_DEPTH_ATTACHMENT)->bind();
 		m_Material->use(vScene);
 		m_pQuadVAO->Draw();
 	}

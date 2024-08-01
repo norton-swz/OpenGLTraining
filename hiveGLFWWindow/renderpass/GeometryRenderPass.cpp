@@ -1,11 +1,14 @@
 #include "GeometryRenderPass.h"
+
+#include <glm/ext/matrix_transform.hpp>
+
 #include "../primitive/Primitive.h"
 #include "../utils/safe.h"
 
 namespace hiveWindow
 {
 	CGeometryRenderPass::CGeometryRenderPass(const std::string& vVertShaderPath, const std::string& vFragShaderPath)
-		:
+		:m_pFloorVAO(CPrimitive::createFloor()),
 		m_pGeoPassShader(std::make_shared<CShader>(vVertShaderPath, vFragShaderPath))
 	{
 	}
@@ -19,6 +22,9 @@ namespace hiveWindow
 		m_pGeoPassShader->use();
 		m_pGeoPassShader->setUniform("view", vScene->getCamera()->getViewMatrix());
 		m_pGeoPassShader->setUniform("projection", vScene->getCamera()->getProjectionMatrix());
+		m_pGeoPassShader->setUniform("model", glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -3.0f, 0.0f)));
+		//m_pGeoPassShader->setUniform("lightspacematrix", vScene->getLight()->getLightSpaceMatrix());
+		m_pFloorVAO->Draw();
 		CNode::traverse(vScene->getRootNode(), [&](const std::shared_ptr<CNode>& vNode){
 				m_pGeoPassShader->setUniform("model", vNode->getModelMatrix());
 				for (const auto& pModel : vNode->getModels())
@@ -47,13 +53,13 @@ namespace hiveWindow
 		pAlbedoSpec->setParameters(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		pAlbedoSpec->setParameters(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		m_pFrameBuffer->setAttachment(GL_COLOR_ATTACHMENT2, pAlbedoSpec);
+		// - Create and attach depth buffer (renderbuffer)
+		const auto& pDepthTex_Geo = std::make_shared<CTexture2D>(vWidth, vHeight, GL_DEPTH_COMPONENT, GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE);
+		pDepthTex_Geo->setParameters(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		pDepthTex_Geo->setParameters(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		m_pFrameBuffer->setAttachment(GL_DEPTH_ATTACHMENT, pDepthTex_Geo);
 		// - Tell OpenGL which color attachments we'll use (of this framebuffer) for rendering
 		m_pFrameBuffer->setDrawAttachments(std::vector<GLenum>{GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2});
-		// - Create and attach depth buffer (renderbuffer)
-		const auto& pDepthTex = std::make_shared<CTexture2D>(vWidth, vHeight, GL_DEPTH_COMPONENT, GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE);
-		pDepthTex->setParameters(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		pDepthTex->setParameters(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		m_pFrameBuffer->setAttachment(GL_DEPTH_ATTACHMENT, pDepthTex);
 		// - Finally check if framebuffer is complete
 		CFrameBuffer::check();
 		m_pFrameBuffer->unbind();

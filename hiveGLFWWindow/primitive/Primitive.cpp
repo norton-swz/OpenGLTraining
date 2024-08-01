@@ -32,3 +32,19 @@ std::shared_ptr<hiveWindow::CVertexBuffer> hiveWindow::CPrimitive::createQuad()
 	};
 	return std::make_shared<CVertexBuffer>(Vertices, Indices, std::vector<int>{2, 2});
 }
+
+std::shared_ptr<hiveWindow::CVertexBuffer> hiveWindow::CPrimitive::createFloor()
+{
+	std::vector<float> floorVertices{
+		// positions            // normals         // texcoords
+		 25.0f, -0.5f,  25.0f,  0.0f, 1.0f, 0.0f,  25.0f,  0.0f,
+		-25.0f, -0.5f,  25.0f,  0.0f, 1.0f, 0.0f,   0.0f,  0.0f,
+		-25.0f, -0.5f, -25.0f,  0.0f, 1.0f, 0.0f,   0.0f, 25.0f,
+
+		 25.0f, -0.5f,  25.0f,  0.0f, 1.0f, 0.0f,  25.0f,  0.0f,
+		-25.0f, -0.5f, -25.0f,  0.0f, 1.0f, 0.0f,   0.0f, 25.0f,
+		 25.0f, -0.5f, -25.0f,  0.0f, 1.0f, 0.0f,  25.0f, 25.0f
+	};
+	std::vector<int> AttributeLayout = { 3, 3, 2 };
+	return std::make_shared<CVertexBuffer>(floorVertices, AttributeLayout, GL_STATIC_DRAW, GL_TRIANGLES);
+}

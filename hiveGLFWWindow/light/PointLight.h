@@ -12,8 +12,10 @@ namespace hiveWindow
 		glm::vec3 getDiffuseColor() const override { return m_DiffuseColor; }
 		glm::vec3 getPosition() const override { return m_Position; }
 		glm::vec3 getDirection() const override { return glm::vec3(0.0f, 0.0f, 0.0f); }
+		glm::mat4 getLightSpaceMatrix() const override { return m_LightSpaceMatrix; }
 	private:
 		glm::vec3 m_DiffuseColor;
 		glm::vec3 m_Position;
+		glm::mat4 m_LightSpaceMatrix;
 	};
 }

@@ -126,6 +126,9 @@
     <ClInclude Include="renderpass\RenderPass.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="renderpass\ShadowRenderPass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window\GLFWWindow.cpp">
@@ -198,6 +201,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="renderpass\LightingRenderPass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="renderpass\ShadowRenderPass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

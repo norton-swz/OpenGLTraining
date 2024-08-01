@@ -4,6 +4,7 @@
   <FRAGMENT_SHADER> .\dragon.frag </FRAGMENT_SHADER>
 </RENDER_ALGORITHM>
 
+
 <RENDER_ALGORITHM>
   gltf_gour_shading
   <VERTEX_SHADER> .\dragon_gouraud.vert </VERTEX_SHADER>

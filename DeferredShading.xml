@@ -5,6 +5,12 @@
 </RENDER_ALGORITHM>
 
 <RENDER_ALGORITHM>
+  shadow_renderpass
+  <VERTEX_SHADER> .\shadow_mapping_depth.vs </VERTEX_SHADER>
+  <FRAGMENT_SHADER> .\shadow_mapping_depth.fs </FRAGMENT_SHADER>
+</RENDER_ALGORITHM>
+
+<RENDER_ALGORITHM>
   lig_renderpass
   <VERTEX_SHADER> .\der_dragon_lig.vert </VERTEX_SHADER>
   <FRAGMENT_SHADER> .\der_dragon_lig.frag </FRAGMENT_SHADER>

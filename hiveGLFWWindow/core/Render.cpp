@@ -40,13 +40,17 @@ void hiveWindow::CRender::startup(const std::string& vWindowConfigFileName, cons
 
     Status = hiveParseConfig(vAlgorithmConfigFileName, hiveConfig::EConfigType::XML, &m_AlgorithmConfig);
     const hiveConfig::CHiveConfig* Sub1config = m_AlgorithmConfig.getSubconfigAt(0);
-    std::string VertShaderPath = Sub1config->getAttribute<std::string>("VERTEX_SHADER").value();
-    std::string FragShaderPath = Sub1config->getAttribute<std::string>("FRAGMENT_SHADER").value();
-    m_pPipeline = std::make_shared<CDeferredPipeline>(VertShaderPath, FragShaderPath, m_pWindow->getWidth(), m_pWindow->getHeight());
     const hiveConfig::CHiveConfig* Sub2config = m_AlgorithmConfig.getSubconfigAt(1);
-    VertShaderPath = Sub2config->getAttribute<std::string>("VERTEX_SHADER").value();
-    FragShaderPath = Sub2config->getAttribute<std::string>("FRAGMENT_SHADER").value();
-	m_pMaterial = std::make_shared<CSolidColorMaterial>(VertShaderPath, FragShaderPath);
+    std::vector<std::string> VertShaderPath, FragShaderPath;
+    VertShaderPath.push_back(Sub1config->getAttribute<std::string>("VERTEX_SHADER").value());
+    VertShaderPath.push_back(Sub2config->getAttribute<std::string>("VERTEX_SHADER").value());
+    FragShaderPath.push_back(Sub1config->getAttribute<std::string>("FRAGMENT_SHADER").value());
+    FragShaderPath.push_back(Sub2config->getAttribute<std::string>("FRAGMENT_SHADER").value());
+    m_pPipeline = std::make_shared<CDeferredPipeline>(VertShaderPath, FragShaderPath, m_pWindow->getWidth(), m_pWindow->getHeight());
+    const hiveConfig::CHiveConfig* Sub3config = m_AlgorithmConfig.getSubconfigAt(2);
+    VertShaderPath.push_back(Sub3config->getAttribute<std::string>("VERTEX_SHADER").value());
+    FragShaderPath.push_back(Sub3config->getAttribute<std::string>("FRAGMENT_SHADER").value());
+	m_pMaterial = std::make_shared<CSolidColorMaterial>(VertShaderPath[2], FragShaderPath[2]);
     m_pPipeline->setLightingPassMaterial(m_pMaterial);
     init(m_pWindow->getWidth(), m_pWindow->getHeight());
 }
@@ -57,10 +61,10 @@ void hiveWindow::CRender::init(int vInitWidth, int vInitHeight)
     m_pScene = std::make_shared<CScene>();
     m_pCamera = std::make_shared<CPerspectiveCamera>();
     m_pCamera->setViewport(vInitWidth, vInitHeight);
-    m_pCamera->setSolidColor(glm::vec4(0.1f, 0.1f, 0.1f, 1.0f));
+    m_pCamera->setSolidColor(glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
     m_pCamera->setFar(1000000.0f);
     m_pScene->setCamera(m_pCamera);
-    m_pScene->setLight(std::make_shared<CPointLight>(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(300.0f, 300.0f, 300.0f) * 4.0f));
+    m_pScene->setLight(std::make_shared<CPointLight>(glm::vec3(0.0f, 5.0f, 0.0f), glm::vec3(1.0, 1.0, 1.0)));
 
     m_pCamController = std::make_shared<CFPSController>(1.0, 10.0);
     m_pCamController->control(m_pCamera);

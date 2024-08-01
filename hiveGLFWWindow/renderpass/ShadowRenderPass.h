@@ -4,16 +4,15 @@
 
 namespace hiveWindow
 {
-	class CGeometryRenderPass :public CRenderPass
+	class CShadowRenderPass :public CRenderPass
 	{
 	public:
-		CGeometryRenderPass(const std::string& vVertShaderPath, const std::string& vFragShaderPath);
+		CShadowRenderPass(const std::string& vVertShaderPath, const std::string& vFragShaderPath);
 		void render(const std::shared_ptr<CScene>& vScene) override;
 	protected:
 		void _setupFrameBuffer(int vWidth, int vHeight) override;
 	private:
-		std::shared_ptr<CShader> m_pGeoPassShader;
-		std::shared_ptr<CVertexBuffer> m_pFloorVAO;
+		std::shared_ptr<CShader> m_pShadowPassShader;
 	};
 }
 

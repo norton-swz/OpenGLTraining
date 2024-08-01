@@ -29,11 +29,16 @@ void hiveWindow::CSolidColorMaterial::use(const std::shared_ptr<CScene>& vScene)
 {
 	m_pShader->use();
 	m_pShader->setUniform("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
-	updateLightDirection();
-	m_pShader->setUniform("lightdirection", m_LightDirection);
+	m_pShader->setUniform("lightPosition", vScene->getLight()->getPosition());
+	m_pShader->setUniform("cameraPosition", vScene->getCamera()->getWorldPos());
+	m_pShader->setUniform("lightspacematrix", vScene->getLight()->getLightSpaceMatrix());
+	//updateLightDirection();
+	//m_pShader->setUniform("lightdirection", m_LightDirection);
 	m_pShader->setUniform("gPosition", 0);
 	m_pShader->setUniform("gNormal", 1);
 	m_pShader->setUniform("gAlbedoSpec", 2);
+	m_pShader->setUniform("gDepth", 3);
+	m_pShader->setUniform("sDepth", 4);
 	//m_pShader->setUniform("lightdirection", glm::vec3(0.0, 0.0, 3.0));
 
 	/*m_pShader->setUniform("model", vNode->getModelMatrix());

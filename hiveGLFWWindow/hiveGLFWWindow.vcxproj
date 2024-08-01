@@ -162,6 +162,7 @@
     <ClInclude Include="renderpass\GeometryRenderPass.h" />
     <ClInclude Include="renderpass\LightingRenderPass.h" />
     <ClInclude Include="renderpass\RenderPass.h" />
+    <ClInclude Include="renderpass\ShadowRenderPass.h" />
     <ClInclude Include="utils\AssetsPath.h" />
     <ClInclude Include="utils\InputHandler.h" />
     <ClInclude Include="utils\safe.h" />
@@ -190,6 +191,7 @@
     <ClCompile Include="base\Texture2D.cpp" />
     <ClCompile Include="renderpass\GeometryRenderPass.cpp" />
     <ClCompile Include="renderpass\LightingRenderPass.cpp" />
+    <ClCompile Include="renderpass\ShadowRenderPass.cpp" />
     <ClCompile Include="utils\AssetsPath.cpp" />
     <ClCompile Include="window\GLFWWindow.cpp" />
     <ClCompile Include="Config\GLFWWindowConfig.cpp" />
