@@ -28,10 +28,13 @@ hiveWindow::CSolidColorMaterial::CSolidColorMaterial(const std::string& vVertSha
 void hiveWindow::CSolidColorMaterial::use(const std::shared_ptr<CScene>& vScene)
 {
 	m_pShader->use();
-	m_pShader->setUniform("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+	m_pShader->setUniform("lightColor", glm::vec3(300.0f, 300.0f, 300.0f));
 	m_pShader->setUniform("lightPosition", vScene->getLight()->getPosition());
 	m_pShader->setUniform("cameraPosition", vScene->getCamera()->getWorldPos());
 	m_pShader->setUniform("lightspacematrix", vScene->getLight()->getLightSpaceMatrix());
+	m_pShader->setUniform("metallic", 0.9f);
+	m_pShader->setUniform("roughness", 0.1f);
+	m_pShader->setUniform("ao", 1.0f);
 	//updateLightDirection();
 	//m_pShader->setUniform("lightdirection", m_LightDirection);
 	m_pShader->setUniform("gPosition", 0);

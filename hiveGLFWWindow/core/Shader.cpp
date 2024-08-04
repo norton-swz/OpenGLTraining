@@ -26,6 +26,11 @@ void hiveWindow::CShader::setUniform(const std::string& vName, int vValue) const
 	glUniform1i(glGetUniformLocation(m_ShaderID, vName.c_str()), vValue);
 }
 
+void hiveWindow::CShader::setUniform(const std::string& vName, float vValue) const
+{
+	glUniform1f(glGetUniformLocation(m_ShaderID, vName.c_str()), vValue);
+}
+
 void hiveWindow::CShader::setUniform(const std::string& vName, const glm::vec3& vValue) const
 {
 	glUniform3f(glGetUniformLocation(m_ShaderID, vName.c_str()), vValue[0], vValue[1], vValue[2]);

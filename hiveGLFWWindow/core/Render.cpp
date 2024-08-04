@@ -71,7 +71,7 @@ void hiveWindow::CRender::init(int vInitWidth, int vInitHeight)
 
     m_pNode = std::make_shared<CNode>();
     //m_pNode->addModel(std::make_shared<CModel>(CPrimitive::createSquare(), m_pMaterial));
-    m_pNode = loadModel("E:\\Source\\cpp\\OpenGLTraining\\dragon.gltf", m_pMaterial);
+    m_pNode = loadModel("../dragon.gltf", m_pMaterial);
     m_pScene->getRootNode()->clearChilds();
     m_pScene->getRootNode()->addChild(m_pNode);
 }

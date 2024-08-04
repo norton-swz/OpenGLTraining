@@ -17,6 +17,7 @@ namespace hiveWindow
 		CShader(const std::string& vVertShaderPath, const std::string& vFragShaderPath);
 		void use() const;
 		void setUniform(const std::string& vName, int vValue) const;
+		void setUniform(const std::string& vName, float vValue) const;
 		void setUniform(const std::string& vName, const glm::vec3& vValue) const;
 		void setUniform(const std::string& vName, const glm::mat4& vMat) const;
 
